@@ -107,7 +107,7 @@
             <a v-bind:href="'./pages/details.html?_id=' + evento._id" class="btn btn-primary">Details</a>
           </div>
         </div>
-
+        <div v-if="!eventosMostrar.length"><h1 class="text-center fw-bold opacity-25">Oops nothing to see here...</h1></div>
       </div>
     </div>
 
