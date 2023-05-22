@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --color--1: #D90368;
+    --color--2: #333333;
+    --color--3: #f0ebeb;
+    --color--4: #0000ff33;
+}
+
+nav{
+    background-color: var(--color--2) !important;
+}
+
+main{
+    background-color: var(--color--3);
+}
+
+
+.nav-link{
+    color: var(--color--1);
+    font-weight: 900;
+    margin:0 .1rem  !important;
+    transition: all .3s ease;
+}
+
+.nav-link:hover{
+    background-color: var(--color--1);
+    color: #fff !important;
+    box-shadow: 6px 6px 2px 1px var(--color--4);
+}
+
+.nav-link[href="#"]{
+    background-color: var(--color--1);
+    color: #fff !important;
+    box-shadow: 6px 6px 2px 1px var(--color--4);
+}
+
+.logo{
+    width: 5em;
+}
+
+/*  */
+
+.carousel-item img{
+    height: 22em;
+    background-position: center;
+    object-fit: cover;
+}
+
+.c-title{
+    background-color: #d9036779;
+    padding: 2.3rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*  */
+.check-search{
+    background-color: #e0dddd;
+}
+
+.form-check-input:checked{
+    background-color: var(--color--1) !important;
+}
+
+.card{
+    width: 18rem !important;
+    border: 0 !important;
+    transition: all .3s ease-in-out;
+}
+
+.card-img-top{
+    height: 12rem !important;
+}
+
+.card-footer{
+    border: 0!important;
+}
+
+.object-fit-cover{
+    object-fit: cover;
+}
+
+.card:hover{
+    box-shadow: 12px 12px 2px 1px var(--color--4);
+}
+
+.card-title{
+    color:#F8F8F8;
+    background-color: var(--color--1);
+    font-weight: 600;
+}
+
+.btn{
+    background-color: #F8F8F8 !important;
+    border: 0 !important;
+    color: var(--color--1);
+    font-weight: 600;
+    transition: all .5s ease-in-out;
+}
+
+.card-past > img{
+    filter: sepia(100%);
+    transition: all .3s ease;
+}
+
+.card-past:hover > img {
+    filter: sepia(0%);
+}
+
+.card-past  .card-title{
+    color:#F8F8F8;
+    background-color: var(--color--2);
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.details-title{
+    background: none;
+    color: var(--color--1);
+    font-size: 1.8rem;
+}
+.card-past:hover .card-title{
+    background-color: var(--color--1);
+}
+
+.card-past .btn{
+    color: var(--color--2);
+}
+
+.card-past:hover .btn{
+    color: var(--color--1);
+}
+
+.btn:hover{
+    background-color: var(--color--1) !important;
+    color: #F8F8F8 !important;
+}
+
+/*  */
+
+.form-contact{
+    width: 30rem !important;
+}
+
+textarea{
+    resize: none;
+}
+
+.card-details{
+    width: 100% !important;
+}
+
+thead{
+    border: 1px var(--color--1) solid;
+}
+
+th{
+    background-color: var(--color--1) !important;
+    color: #fff;
+    border: 0;
+}
+
+.table-bordered{
+    border: 2px solid var(--color--4);
+}
+
+footer{
+    background-color: var(--color--2) !important;
+}
+
+
+.redes a{
+    padding: .7rem;
+}
+
+.redes a i{
+    color: var(--color--1);
+    font-size: 1.3rem;
+    transition: all .4s ease;
+}
+
+.redes a:hover {
+    background-color: var(--color--1);
+    border-radius: 100%;
+}
+
+.redes a:hover i{
+    color: #fff;
+}
+
+footer div h3{
+    color: #fff;
+}
+
+@media(max-width: 424px){
+    footer>div.d-flex{
+        flex-direction: column;
+    }
+    .redes{
+        display: flex;
+        flex-direction: column;
+    }
+}
