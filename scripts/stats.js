@@ -4,13 +4,10 @@ createApp({
   data() {
     return {
       eventos: [] /* todos los eventos */,
-      eventosMostrar: [],
-      categorias: [] /* categorias */,
-      filtroEventosPasados: [],
-      eventosFuturos: [],
-      mayorAsistencia: "",
-      menorAsistencia: "",
-      mayorCapacidad: "",
+      eventosMostrar: [], /* copia de eventos */
+      mayorAsistencia: "", /* tabla general */
+      menorAsistencia: "", /* tabla general */
+      mayorCapacidad: "", /* tabla general */
       arraysCategoriasFuturas: [],
       ObjetoCategoriaFuturas: {},
       arraysCategoriasPasadas: [],
@@ -25,7 +22,6 @@ createApp({
         this.eventos = data.events;
         const currentDate = data.currentDate;
         this.eventosMostrar = this.eventos;
-        this.getCategorias(this.eventos);
         /* eventos pasados */
         this.filtroEventosPasados = this.eventos.filter(
           (evento) => evento.date < currentDate
@@ -38,27 +34,24 @@ createApp({
         let categoriasSinRepetir = Array.from(
           new Set(this.eventos.map((categoria) => categoria.category))
         );
+        console.log(categoriasSinRepetir)
         /* primera tabla */
         this.mayorAsistencia = this.eventoMayorAsistencia(this.eventos);
         this.menorAsistencia = this.eventoMenorAsistencia(this.eventos);
         this.mayorCapacidad = this.eventoMasCapacidad(this.eventos)
         /* objeto de categorias pasadas */
         const categoriasPasadas = this.arrayEventos(categoriasSinRepetir, this.filtroEventosPasados);
-        console.log(categoriasPasadas)
         this.objetoGananciaPorcentaje(categoriasPasadas, this.ObjetoCategoriaPasadas)
         
         /* objeto de categorias futuras */
         const categoriasFuturas = this.arrayEventos(categoriasSinRepetir, this.filtroEventosFuturos);
         console.log(categoriasFuturas)
         this.objetoGananciaPorcentaje(categoriasFuturas, this.ObjetoCategoriaFuturas)
+        console.log(this.ObjetoCategoriaFuturas)
       })
       .catch((error) => console.error(error));
   },
   methods: {
-    getCategorias(array) {
-      this.categorias = [...new Set(array.map((item) => item.category))];
-    },
-
     eventoMayorAsistencia(data) {
       const array = data.slice();
 
@@ -93,7 +86,7 @@ createApp({
       return `${array[0].name} | ${array[0].capacity}`;
     },
 
-    /*  */
+    /* crear objeto segun la tabla pasado o upcoming */
     arrayEventos(array, filtro){
       const arraysCategorias = array.reduce((acumulador, categoria) => {
         const objetosCategoria = filtro.filter(
